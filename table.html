@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 2px solid rgb(255, 255, 255);
+            padding: 30px;
+            font-size: 24px;
+            color: rgb(11, 19, 57);
+        }
+
+      
+
+    </style>
+</head>
+
+<body style="background-color: #063d5bcc;">
+    <h1 style="font-size: 48px;color:white;text-align: center;padding: 20px 0; border-bottom: 2px solid black;margin: 0;">Dynamic Table</h1>
+ <center style="margin-top: 30px ;">
+    
+    <label style="font-size: 30px;color:white;">Row:</label>
+    <input type="number" id="row" style="height: 30px;margin-left: 10px;"><br><br>
+    <label style="font-size: 30px;color:white;text-align: center;">Column:</label>
+    <input type="number" id="column" style="height: 30px;margin-left: 10px;"><br><br>
+
+   
+    <button onclick="createTable()"style="margin-bottom:10px;width:150px;height:40px;font-size: 20px;border: 2px solid black;color: black;background-color:white;border-radius: 15px;">Submit</button><br><br>
+
+
+
+    <div id="tableContainer"></div>
+ </center>
+
+
+    <script>
+        function createTable() {
+            var rows = document.getElementById("row").value;
+            var columns = document.getElementById("column").value;
+
+            var tableContainer = document.getElementById("tableContainer");
+            tableContainer.innerHTML = ""
+            var table = document.createElement("table");
+
+            for (var i = 0; i < rows; i++) {
+                var row = document.createElement("tr");
+                for (var j = 0; j < columns; j++) {
+                    var td = document.createElement("td");
+                    td.appendChild(document.createTextNode("Row " + (i + 1) + ", Column " + (j + 1)));
+                    row.appendChild(td);
+                }
+                table.appendChild(row);
+            }
+
+            tableContainer.appendChild(table);
+        }
+    </script>
+
+
+</body>
+
+</html>
